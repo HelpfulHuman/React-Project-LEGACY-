@@ -2,7 +2,7 @@
   "name": "helpful-react",
   "version": "0.1.0",
   "description": "A project template for building front-end applications with React, Flux, Gulp and Stylus.",
-  "main": "index.js",
+  "main": "server/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
