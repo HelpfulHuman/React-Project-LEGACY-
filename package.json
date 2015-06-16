@@ -24,16 +24,30 @@
   },
   "homepage": "https://github.com/HelpfulHuman/React-Project",
   "dependencies": {
-    "react": "^0.13.3"
+    "dotenv": "^1.1.0",
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "flux": "^2.0.3",
+    "lodash": "^3.9.3",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "webpack": "^1.9.10"
   },
   "devDependencies": {
-    "browser-sync": "^2.7.6",
+    "babel": "^5.5.4",
+    "babel-core": "^5.5.4",
+    "babel-jest": "^5.2.0",
+    "babel-loader": "^5.1.4",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-minify-css": "^1.1.6",
+    "gulp-nodemon": "^2.0.3",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
-    "gulp-stylus": "^2.0.3"
+    "gulp-stylus": "^2.0.3",
+    "node-libs-browser": "^0.5.2",
+    "react-hot-loader": "^1.2.7",
+    "webpack-dev-server": "^1.9.0"
   }
 }
