@@ -46,6 +46,8 @@
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.0.3",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.5",
     "node-libs-browser": "^0.5.2",
     "react-hot-loader": "^1.2.7",
     "webpack-dev-server": "^1.9.0"
