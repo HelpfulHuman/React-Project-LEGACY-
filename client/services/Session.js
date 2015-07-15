@@ -72,4 +72,4 @@ class Session {
 
 }
 
-export default new Session(localStorage)
+export default new Session(window.localStorage)
