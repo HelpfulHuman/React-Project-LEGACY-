@@ -1,7 +1,7 @@
 import Dispatcher from '../services/Dispatcher'
 import Router from '../services/Router'
 import AuthStore from '../stores/AuthStore'
-import Request from 'superagent'
+import Api from '../services/Api'
 
 export default {
 
@@ -16,49 +16,31 @@ export default {
    */
   login: function (email, password) {
 
-    return Request
-      .post('/auth')
-      .send({ email, password })
-      .end((err, res) => {
-        if (!err && res.status === 200) {
-          this._authenticate(res.body.data.token)
-          return
-        }
-
-        Dispatcher.dispatch({
-          actionType: 'LOGIN_FAILED',
-          status: err || res.body
-        })
-      })
+    return Api
+      .post('/auth', { email, password })
+      .then(this._loginSuccess)
+      .catch(this._loginFailed)
 
   },
 
   /**
-   * Checks localStorage for a token and uses it to invoke the
-   * AUTHENTICATED_USER action.
-   */
-  checkAndAuthenticate: function () {
-    if (AuthStore.token) {
-      this._authenticate(AuthStore.token)
-    }
-  },
-
-  /**
-   * Compares the provided token with any tokens in storage and redirects
-   * the user to the appropriate location before dispatching the
-   * "AUTHENTICATED_USER" action.
+   * Handles successful responses from login attempt and dispatches
+   * the "LOGIN_SUCCESS" action..
    *
-   * @param  {String} token
+   * @param  {Object} res
    */
-  _authenticate: function (token) {
+  _loginSuccess: function (res) {
+    // pull the token out
+    var token = res.body.data.token
+
     // fetch the originally stored token (if any)
     var savedToken = AuthStore.token
 
     // dispatch the logged in event
     Dispatcher.dispatch({
-      actionType: 'LOGIN',
+      actionType: 'LOGIN_SUCCESS',
       token: token,
-      user: { id: '' }
+      user: {}
     })
 
     // if the token has changed in any way, redirect the user
@@ -67,6 +49,19 @@ export default {
       Router.transitionTo(nextPath)
     }
 
+  },
+
+  /**
+   * Dispatches the "LOGIN_FAILED" action.
+   *
+   * @param  {Object} err
+   */
+  _loginFailed: function (err) {
+    Dispatcher.dispatch({
+      actionType: 'LOGIN_FAILED',
+      statusCode: err.status,
+      error: err.error
+    })
   },
 
   /**

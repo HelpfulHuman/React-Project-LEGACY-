@@ -29,9 +29,9 @@
     "express": "^4.12.4",
     "flux": "^2.0.3",
     "lodash": "^3.9.3",
+    "portals": "^0.1.0",
     "react": "^0.13.3",
     "react-router": "^0.13.3",
-    "superagent": "^1.2.0",
     "webpack": "^1.9.10"
   },
   "devDependencies": {

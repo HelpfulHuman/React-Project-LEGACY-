@@ -40,18 +40,18 @@ class Authenticated extends React.Component {
   }
 
   /**
-   * Subscribe to changes in the AuthStore so we can respond as necessary.
-   */
-  componentDidMount() {
-    AuthStore.addChangeListener(this._onChange.bind(this))
-  }
-
-  /**
    * If any change has occurred in the AuthStore, re-render the component
    * by updating its state with whatever is in the AuthStore.
    */
   _onChange() {
     this.setState(this.getLoginState())
+  }
+
+  /**
+   * Subscribe to changes in the AuthStore so we can respond as necessary.
+   */
+  componentDidMount() {
+    AuthStore.addChangeListener(this._onChange.bind(this))
   }
 
   /**

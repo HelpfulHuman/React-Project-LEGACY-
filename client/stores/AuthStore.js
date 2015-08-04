@@ -25,7 +25,7 @@ class AuthStore extends Store {
    */
   registerActions(action) {
     switch(action.actionType) {
-      case 'LOGIN':
+      case 'LOGIN_SUCCESS':
         this._token = action.token
         this._user  = action.user
         Session.set('authToken', this._token)
