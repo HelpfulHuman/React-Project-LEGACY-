@@ -12,6 +12,7 @@ var gulp = require('gulp')
   , pkg = require('./package.json')
   , buildCfg = require("./webpack.config")
   , buildDevCfg = require("./webpack.dev-config")
+  , assets = './resources'
   , client = './client'
   , server = './server'
   , dist = './build'
