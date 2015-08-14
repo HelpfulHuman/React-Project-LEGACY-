@@ -4,7 +4,15 @@
   "description": "A project template for building front-end applications with React, Flux, Gulp and Stylus.",
   "main": "server/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "PHANTOMJS_BIN=./node_modules/.bin/phantomjs",
+    "server": "node server/main.js"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-tools"
+    ]
   },
   "repository": {
     "type": "git",
@@ -50,6 +58,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
     "node-libs-browser": "^0.5.2",
+    "phantomjs": "^1.9.17",
     "react-hot-loader": "^1.2.7",
     "webpack-dev-server": "^1.9.0"
   }
