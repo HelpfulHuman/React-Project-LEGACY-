@@ -127,10 +127,9 @@ gulp.task('server', function () {
  * AGGREGATED TASKS
  * These are tasks that have been put together for ease of use.
  */
-gulp.task('dev', ['watch', 'server'])
-
+gulp.task('publish', ['build'])
 
 /**
  * DEFAULT TASK
  */
-gulp.task('default', ['build', 'watch'])
+gulp.task('default', ['watch', 'server'])
