@@ -1,3 +1,5 @@
+require('dotenv').load()
+var path    = require('path')
 var webpack = require('webpack');
 
 /**
@@ -14,8 +16,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /client\/.+\.jsx?$/,
-        exclude: /node_modules/,
+        test: /jsx?$/,
+        include: path.join(__dirname, 'client'),
         loader: "babel-loader?stage=0"
       }
     ]
@@ -30,5 +32,12 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     // minify our outputted JS
     new webpack.optimize.UglifyJsPlugin(),
+    // pass in our environment variables
+    new webpack.DefinePlugin({
+      env: Object.keys(process.env).reduce(function(o, k) {
+        o[k] = JSON.stringify(process.env[k])
+        return o
+      }, {})
+    })
   ]
 }
