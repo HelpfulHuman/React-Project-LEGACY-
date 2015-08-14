@@ -16,7 +16,9 @@ Api.useDefaultInterceptors()
 /**
  * Set our global settings, like "hostname".
  */
-Api.globals.hostname = 'http://localhost'
+if (env.API_HOST) {
+  Api.globals.hostname = env.API_HOST
+}
 
 /**
  * Add a custom interceptor that will check the AuthStore to
