@@ -55,7 +55,7 @@ export default {
    * @return {Date}
    */
   getExpirationDate(token) {
-    var decoded = this.decodeToken(token)
+    var decoded = this.decode(token)
 
     if (typeof decoded.exp === 'undefined') {
       return null
@@ -75,7 +75,7 @@ export default {
    * @return {Boolean}
    */
   isExpired(token, offsetSeconds = 0) {
-    var d = this.getTokenExpirationDate(token)
+    var d = this.getExpirationDate(token)
 
     if (d === null) {
       return false

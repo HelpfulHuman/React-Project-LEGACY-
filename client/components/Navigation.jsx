@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthActions from '../actions/AuthActions'
+import AuthActions from '../Actions/AuthActions'
 
 class Navigation extends React.Component {
 
