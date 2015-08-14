@@ -4,7 +4,12 @@
   "description": "A project template for building front-end applications with React, Flux, Gulp and Stylus.",
   "main": "server/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testFileExtensions": ["es6", "js", "jsx"],
+    "moduleFileExtensions": ["js", "json", "es6", "jsx"]
   },
   "repository": {
     "type": "git",
@@ -39,6 +44,7 @@
     "babel-core": "^5.5.4",
     "babel-jest": "^5.2.0",
     "babel-loader": "^5.1.4",
+    "jest-cli": "*",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
