@@ -29,14 +29,14 @@ The client folder houses the client application for your project.  This is where
 
 ### Resources
 
-Resources are for assets, like images and generic styles, and other various components that may be needed by either part of your application.
+Resources are for assets, like images and generic styles, server-side templates and any other components needed by either piece of your application.
 
 * **images/** is where, you guessed it, your images go.
 * **styles/** is for your base styles that don't belong to a specific context or component.
+* **templates/** contains any templates needed by the server.
 
 ### Server
 
-The server folder houses the Express server files need to serve up the client application and support the web pack hot loader.  We're currently working on adding [isomorphic React]() support as well as some other helpful utilities.
+The server folder houses the Express server files need to serve up the client application and support the web pack hot loader.  We're currently working on adding [isomorphic React](http://bensmithett.github.io/going-isomorphic-with-react/#/) support as well as some other helpful utilities.
 
-* **templates/** contains any templates needed by the server.
 * **main.js** is the Express server.
