@@ -1,0 +1,89 @@
+/**
+ * This grid is based on Bootstrap's grid system.  You'll notice that
+ * the columns are not considered a "part".  This is because they can
+ * technically be treated as a standalone component and even have their
+ * own modifiers/options (aka, the sizes).
+ */
+
+$grid__columns      ?= 12
+$grid__gutter       ?= 30px
+$grid__gutter-xs    ?= $grid__gutter
+$grid__gutter-sm    ?= $grid__gutter-xs
+$grid__gutter-md    ?= $grid__gutter-sm
+$grid__gutter-lg    ?= $grid__gutter-md
+$grid__gutter-xl    ?= $grid__gutter-lg
+
+@import 'mixins'
+
+.grid
+  margin-left em(-1 * ($grid__gutter-xs / 2))
+  margin-right em(-1 * ($grid__gutter-xs / 2))
+
+  if $grid__gutter-sm != $grid__gutter-xs
+    @media (min-width: $global__media-sm)
+      margin-left em(-1 * ($grid__gutter-sm / 2))
+      margin-right em(-1 * ($grid__gutter-sm / 2))
+
+  if $grid__gutter-md != $grid__gutter-sm
+    @media (min-width: $global__media-md)
+      margin-left em(-1 * ($grid__gutter-md / 2))
+      margin-right em(-1 * ($grid__gutter-md / 2))
+
+  if $grid__gutter-lg != $grid__gutter-md
+    @media (min-width: $global__media-lg)
+      margin-left em(-1 * ($grid__gutter-lg / 2))
+      margin-right em(-1 * ($grid__gutter-lg / 2))
+
+  if $grid__gutter-xl != $grid__gutter-lg
+    @media (min-width: $global__media-xl)
+      margin-left em(-1 * ($grid__gutter-xl / 2))
+      margin-right em(-1 * ($grid__gutter-xl / 2))
+
+  &:before,
+  &:after
+    content " "
+    display table
+
+  &:after
+    clear both
+
+.col
+  float left
+  display block
+  padding-left em($grid__gutter / 2)
+  padding-right em($grid__gutter / 2)
+  width 100%
+
+  if $grid__gutter-sm != $grid__gutter-xs
+    @media (min-width: $global__media-sm)
+      padding-left em($grid__gutter-sm / 2)
+      padding-right em($grid__gutter-sm / 2)
+
+  if $grid__gutter-md != $grid__gutter-sm
+    @media (min-width: $global__media-md)
+      padding-left em($grid__gutter-md / 2)
+      padding-right em($grid__gutter-md / 2)
+
+  if $grid__gutter-lg != $grid__gutter-md
+    @media (min-width: $global__media-lg)
+      padding-left em($grid__gutter-lg / 2)
+      padding-right em($grid__gutter-lg / 2)
+
+  if $grid__gutter-xl != $grid__gutter-lg
+    @media (min-width: $global__media-xl)
+      padding-left em($grid__gutter-xl / 2)
+      padding-right em($grid__gutter-xl / 2)
+
+  grid__column-classes('\-xs')
+
+  @media (min-width: $global__media-sm)
+    grid__column-classes('\-sm')
+
+  @media (min-width: $global__media-md)
+    grid__column-classes('\-md')
+
+  @media (min-width: $global__media-lg)
+    grid__column-classes('\-lg')
+
+  @media (min-width: $global__media-xl)
+    grid__column-classes('\-xl')

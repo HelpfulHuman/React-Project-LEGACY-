@@ -14,7 +14,7 @@ var gulp = require('gulp')
   , buildDevCfg = require("./webpack.dev-config")
   , client = './client'
   , server = './server'
-  , dist = './public'
+  , dist = './build'
 
 
 /**
@@ -63,8 +63,8 @@ gulp.task('clean:images', function (done) {
  * STYLES:COMPILE
  * Compile Stylus files, apply vendor prefixes and minify stylesheets.
  */
-gulp.task('styles', function () {
-  return gulp.src(src + '/*.styl')
+gulp.task('styles', ['clean:styles'], function () {
+  return gulp.src(client + '/*.styl')
     .pipe(plumber())
     .pipe(stylus())
     .pipe(autoprefix())
@@ -79,7 +79,7 @@ gulp.task('styles', function () {
  * Copying images to the distribution folder.
  */
 gulp.task('images', ['clean:images'], function () {
-  return gulp.src(src + '/images/**/*')
+  return gulp.src(client + '/images/**/*')
     .pipe(gulp.dest(dist + '/images'))
 })
 
@@ -87,17 +87,22 @@ gulp.task('images', ['clean:images'], function () {
  * WEBPACK
  * Various webpack build and serve routes.
  */
-gulp.task('build:dev', webpackBuild(buildDevCfg))
-gulp.task('build', webpackBuild(buildCfg))
+gulp.task('webpack:dev', webpackBuild(buildDevCfg))
+gulp.task('webpack', webpackBuild(buildCfg))
 
+/**
+ * BUILD
+ */
+gulp.task('build:dev', ['styles', 'webpack:dev'])
+gulp.task('build', ['styles', 'webpack'])
 
 /**
  * WATCH
  * Automatically run tasks on file change.
  */
 gulp.task('watch', ['build:dev'], function () {
-  // gulp.watch(src + '/**/*.styl', ['styles'])
-  gulp.watch(client + '/**/*', ['build:dev'])
+  gulp.watch(client + '/**/*.styl', ['styles'])
+  gulp.watch(client + '/**/*.(js|jsx)', ['webpack:dev'])
 })
 
 /**

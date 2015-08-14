@@ -1,6 +1,6 @@
 import React from 'react'
 import {RouteHandler} from 'react-router'
-import AuthStore from '../stores/AuthStore'
+import AuthStore from '../Stores/AuthStore'
 
 class Authenticated extends React.Component {
 
@@ -68,10 +68,7 @@ class Authenticated extends React.Component {
    */
   render() {
     return (
-      <RouteHandler
-        {...this.props}
-        user={this.state.user}
-        token={this.state.token} />
+      <RouteHandler user={this.state.user} {...this.props} />
     )
   }
 

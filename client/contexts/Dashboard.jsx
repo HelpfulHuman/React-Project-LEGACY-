@@ -1,6 +1,5 @@
 import React from 'react'
-import Request from 'superagent'
-import Navigation from '../components/Navigation'
+import Navigation from '../Components/Navigation'
 
 class Dashboard extends React.Component {
 
@@ -36,17 +35,13 @@ class Dashboard extends React.Component {
     var contents = '--- loading ---'
 
     if (!this.state.loading) {
-      contents = 'Ready!'
+      contents = 'You are now logged in!'
     }
 
     return (
-      <div>
+      <div className='as-dashboard'>
         <Navigation />
-
-        Dashboard
-        <div>
-          {contents}
-        </div>
+        {contents}
       </div>
     )
   }

@@ -1,0 +1,17 @@
+/**
+ * Returns the column width based on how many columns it spans and
+ * the total number of columns.
+ */
+grid__column-width($columns, $total = $grid__columns)
+  (($columns / $total) * 100) + 0%
+
+/**
+ * Generates a new set of column modifiers.
+ */
+grid__column-classes($prefix)
+  for $i in (1)..($grid__columns)
+    &.{$prefix + $i}
+      width grid__column-width($i)
+
+    &.{$prefix + $i}-push
+      margin-left grid__column-width($i)

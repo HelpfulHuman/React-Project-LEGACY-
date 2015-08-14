@@ -1,6 +1,8 @@
 import React from 'react'
-import Router from '../services/Router'
-import AuthActions from '../actions/AuthActions'
+import Router from '../Services/Router'
+import AuthActions from '../Actions/AuthActions'
+
+import TextField from '../Components/TextField'
 
 class Login extends React.Component {
 
@@ -13,8 +15,8 @@ class Login extends React.Component {
     e.preventDefault()
 
     // get the input from the forms
-    var email     = this.refs.email.getDOMNode().value
-      , password  = this.refs.password.getDOMNode().value
+    var email    = React.findDOMNode(this.refs.email.refs.input).value
+    var password = React.findDOMNode(this.refs.password.refs.input).value
 
     AuthActions.login(email, password)
   }
@@ -26,12 +28,24 @@ class Login extends React.Component {
    */
   render() {
     return (
-      <div>
-        <form role='login'>
-          <input type='email' ref='email' placeholder='E-Mail' />
-          <input type='password' ref='password' placeholder='Password' />
-          <button type='submit' onClick={this.attemptLogin.bind(this)}>Submit</button>
-        </form>
+      <div className='login'>
+        <div className='login__form'>
+          <TextField type='email' label='Email' ref='email' placeholder='E-Mail' />
+          <TextField type='password' label='Password' ref='password' placeholder='Password' />
+          <div className='login__actions'>
+            <div className='login__support'>
+              <a href='/password'>Forgot your password?</a>
+            </div>
+            <div className='login__continue'>
+              <button onClick={this.attemptLogin.bind(this)}>
+                Log In
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='login__signup'>
+          Don't have an account? <a href='/register'>Sign Up</a>
+        </div>
       </div>
     )
   }

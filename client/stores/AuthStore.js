@@ -1,6 +1,6 @@
 import Store from './Store'
-import Session from '../services/Session'
-import jwt from '../helpers/jwt'
+import Session from '../Services/Session'
+import Token from '../Services/Token'
 
 class AuthStore extends Store {
 
@@ -67,7 +67,7 @@ class AuthStore extends Store {
    * @return {Boolean}
    */
   isLoggedIn() {
-    return (!!this._token && !jwt.isTokenExpired(this._token))
+    return (!!this._token && !Token.isExpired(this._token))
   }
 }
 

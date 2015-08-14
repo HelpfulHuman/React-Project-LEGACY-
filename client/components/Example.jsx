@@ -1,6 +1,6 @@
 import React from 'react'
 
-class HelloWorld extends React.Component {
+class Example extends React.Component {
 
   /**
    * Constructor; Set our default state.  Also pay attention to the
@@ -35,7 +35,7 @@ class HelloWorld extends React.Component {
  *
  * @type {Object}
  */
-HelloWorld.propTypes = {
+Example.propTypes = {
   greeting: React.PropTypes.string
 }
 
@@ -44,8 +44,8 @@ HelloWorld.propTypes = {
  *
  * @type {Object}
  */
-HelloWorld.defaultProps = {
+Example.defaultProps = {
   greeting: 'Hello'
 }
 
-export default HelloWorld
+export default Example

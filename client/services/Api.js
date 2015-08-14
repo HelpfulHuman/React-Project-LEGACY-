@@ -1,5 +1,5 @@
 import {Portal} from 'portals'
-import AuthStore from '../stores/AuthStore'
+import AuthStore from '../Stores/AuthStore'
 
 /**
  * Instantiate a Portal instance that we can use to make all

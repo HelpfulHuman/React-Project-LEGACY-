@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events'
-import Dispatcher from '../services/Dispatcher'
+import Dispatcher from '../Services/Dispatcher'
 
 class Store extends EventEmitter {
 

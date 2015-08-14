@@ -1,7 +1,7 @@
-import Dispatcher from '../services/Dispatcher'
-import Router from '../services/Router'
-import AuthStore from '../stores/AuthStore'
-import Api from '../services/Api'
+import Dispatcher from '../Services/Dispatcher'
+import Router from '../Services/Router'
+import AuthStore from '../Stores/AuthStore'
+import Api from '../Services/Api'
 
 export default {
 

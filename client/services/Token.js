@@ -9,7 +9,7 @@ export default {
    * @param  {String} str
    * @return {String}
    */
-  urlBase64Decode: function (str) {
+  urlBase64Decode(str) {
     var output = str.replace(/-/g, '+').replace(/_/g, '/')
     switch (output.length % 4) {
       case 0:
@@ -32,7 +32,7 @@ export default {
    * @param  {String} token
    * @return {Object}
    */
-  decodeToken: function (token) {
+  decode(token) {
     var parts = token.split('.')
 
     if (parts.length !== 3) {
@@ -54,7 +54,7 @@ export default {
    * @param  {String} token
    * @return {Date}
    */
-  getTokenExpirationDate: function (token) {
+  getExpirationDate(token) {
     var decoded = this.decodeToken(token)
 
     if (typeof decoded.exp === 'undefined') {
@@ -74,7 +74,7 @@ export default {
    * @param  {Number} offsetSeconds
    * @return {Boolean}
    */
-  isTokenExpired: function (token, offsetSeconds = 0) {
+  isExpired(token, offsetSeconds = 0) {
     var d = this.getTokenExpirationDate(token)
 
     if (d === null) {
