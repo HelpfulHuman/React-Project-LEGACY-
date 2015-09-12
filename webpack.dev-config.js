@@ -1,3 +1,5 @@
+require('dotenv').load()
+var path    = require('path')
 var webpack = require('webpack');
 
 /**
@@ -33,15 +35,22 @@ module.exports = {
   // Necessary plugins for hot load
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    // pass in our environment variables
+    new webpack.DefinePlugin({
+      env: Object.keys(process.env).reduce(function(o, k) {
+        o[k] = JSON.stringify(process.env[k])
+        return o
+      }, {})
+    })
   ],
 
   // Transform source code using Babel and React Hot Loader
   module: {
     loaders: [
       {
-        test: /client\/.+\.jsx?$/,
-        exclude: /node_modules/,
+        test: /jsx?$/,
+        include: path.join(__dirname, 'client'),
         loaders: ["react-hot", "babel-loader?stage=0"],
       }
     ]

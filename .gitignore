@@ -1,6 +1,8 @@
 node_modules
 bower_components
 npm-debug.log
-build
 .env
+public
+dist
+build
 tmp

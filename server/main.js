@@ -3,14 +3,20 @@ require('dotenv').load()
 var express = require('express')
   , app     = express()
   , port    = process.env.PORT || 8080
-
+  , path    = require('path')
 /**
  * Configure our express application.
  */
-// app.use(express.static('public'))
-app.set('views', __dirname + '/templates')
+app.set('views', __dirname + '/../resources/templates')
 app.set('view engine', 'ejs')
 
+// Serve CSS
+app.get('/app.css', function (req, res) {
+  var ext = (process.env.APP_ENV === 'production' ? '.min.css' : '.css')
+  res.sendFile(path.join(__dirname, '..', 'build', 'app' + ext))
+})
+
+// TODO set up route to serve up assets like images, robot.txt, etc...
 
 /************************************************************
  *

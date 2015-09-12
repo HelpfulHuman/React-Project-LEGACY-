@@ -2,9 +2,9 @@ import React from 'react'
 import {Route, DefaultRoute, NotFoundRoute, RouteHandler} from 'react-router'
 
 // Import the contexts
-import Authenticated from './contexts/Authenticated'
-import Login from './contexts/Login'
-import Dashboard from './contexts/Dashboard'
+import Authenticated from './Contexts/Authenticated'
+import Login from './Contexts/Login'
+import Dashboard from './Contexts/Dashboard'
 
 /**
  * This is where all of your application routes should go.

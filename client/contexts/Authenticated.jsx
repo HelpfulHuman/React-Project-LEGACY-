@@ -1,6 +1,6 @@
 import React from 'react'
 import {RouteHandler} from 'react-router'
-import AuthStore from '../stores/AuthStore'
+import AuthStore from '../Stores/AuthStore'
 
 class Authenticated extends React.Component {
 
@@ -40,18 +40,18 @@ class Authenticated extends React.Component {
   }
 
   /**
-   * Subscribe to changes in the AuthStore so we can respond as necessary.
-   */
-  componentDidMount() {
-    AuthStore.addChangeListener(this._onChange.bind(this))
-  }
-
-  /**
    * If any change has occurred in the AuthStore, re-render the component
    * by updating its state with whatever is in the AuthStore.
    */
   _onChange() {
     this.setState(this.getLoginState())
+  }
+
+  /**
+   * Subscribe to changes in the AuthStore so we can respond as necessary.
+   */
+  componentDidMount() {
+    AuthStore.addChangeListener(this._onChange.bind(this))
   }
 
   /**
@@ -68,10 +68,7 @@ class Authenticated extends React.Component {
    */
   render() {
     return (
-      <RouteHandler
-        {...this.props}
-        user={this.state.user}
-        token={this.state.token} />
+      <RouteHandler user={this.state.user} {...this.props} />
     )
   }
 
