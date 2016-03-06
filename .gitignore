@@ -1,8 +1,4 @@
-node_modules
-bower_components
+node_modules/
+build/
 npm-debug.log
 .env
-public
-dist
-build
-tmp
