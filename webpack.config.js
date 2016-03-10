@@ -7,9 +7,9 @@ var APP_ENV = process.env.APP_ENV;
 var port = process.env.PORT || 9700;
 
 var config = {
-  entry: [ __dirname + '/src/index.js' ],
+  entry: [ path.resolve(__dirname, 'src/index.js') ],
   output: {
-    path: __dirname + '/build',
+    path: path.resolve(__dirname, 'build'),
     publicPath: '/',
     filename: 'app.js'
   },
@@ -19,7 +19,7 @@ var config = {
       {
         test: /\.jsx?$/,
         loader: 'babel',
-        include: __dirname + '/src'
+        include: path.resolve(__dirname, 'src')
       }
     ]
   },
