@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Dashboard extends React.Component {
+export default class Dashboard extends Component {
 
   static propTypes = {
   };
@@ -15,7 +15,4 @@ class Dashboard extends React.Component {
       </div>
     );
   }
-
 }
-
-export default Dashboard;
