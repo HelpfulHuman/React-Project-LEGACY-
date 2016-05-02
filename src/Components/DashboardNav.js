@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class DashboardNav extends React.Component {
+export default class DashboardNav extends Component {
 
   static propTypes = {
     displayName: React.PropTypes.string
@@ -19,7 +19,4 @@ class DashboardNav extends React.Component {
       </div>
     );
   }
-
 }
-
-export default DashboardNav;
