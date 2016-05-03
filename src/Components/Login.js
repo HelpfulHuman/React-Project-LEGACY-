@@ -1,7 +1,6 @@
-import React from 'react';
-import { findDOMNode } from 'react-dom';
+import React, { Component } from 'react';
 
-class Login extends React.Component {
+export default class Login extends Component {
 
   static propTypes = {
     onLogin: React.PropTypes.func
@@ -11,8 +10,8 @@ class Login extends React.Component {
   };
 
   onLogin () {
-    let email = findDOMNode(this.refs.email).value;
-    let pass  = findDOMNode(this.refs.pass).value;
+    let email = this.refs.email.value;
+    let pass  = this.refs.pass.value;
     if (this.props.onLogin) this.props.onLogin(email, pass);
   }
 
@@ -30,7 +29,4 @@ class Login extends React.Component {
       </div>
     );
   }
-
 }
-
-export default Login;
