@@ -1,4 +1,4 @@
-import { routeActions } from 'redux-simple-router';
+import { routeActions } from 'react-router-redux';
 
 /**
  * Attempts to login the user with the given credentials.

@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './Services/Store';
-import browserHistory from './Services/History';
-import { Router, Route, IndexRoute } from 'react-router';
+import { appHistory } from './Services/History';
+import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import { isLoggedIn, isGuest } from './Services/AuthMiddleware';
 
 // contexts
@@ -15,7 +15,7 @@ import DashboardNav from './Contexts/DashboardNav';
 // start rendering the application
 render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={appHistory}>
       <Route component={App}>
         <Route component={DashboardNav} onEnter={isLoggedIn(store)}>
           <Route path='/' component={Dashboard} />

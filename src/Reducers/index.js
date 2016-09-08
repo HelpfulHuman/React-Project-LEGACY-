@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import authReducer from './auth';
-import { routeReducer } from 'redux-simple-router';
+import { routeReducer } from 'react-router-redux';
 
 /**
  * The root reducer for this application.

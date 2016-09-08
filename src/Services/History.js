@@ -1,3 +1,5 @@
-import { createHistory } from 'history';
+import { createHashHistory } from 'history';
+import { useRouterHistory } from 'react-router';
 
-export default createHistory();
+// useRouterHistory creates a composable higher-order function
+export default useRouterHistory(createHashHistory)({ queryKey: false });
