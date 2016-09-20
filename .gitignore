@@ -2,3 +2,5 @@ node_modules/
 npm-debug.log
 .env
 .idea
+.DS_Store
+*/.DS_Store
